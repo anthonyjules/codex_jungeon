@@ -1,0 +1,85 @@
+{
+  "characters": [
+    {
+      "id": "bob_the_brave",
+      "name": "Bob the Brave",
+      "shortDescription": "A stout warrior with a rusty sword.",
+      "longDescription": "Bob the Brave stands tall, his dented armor clanking softly with each breath.",
+      "startingRoom": "entrance",
+      "appearanceInRoom": "{name} stands here, eyeing the shadows."
+    },
+    {
+      "id": "lina_the_quiet",
+      "name": "Lina the Quiet",
+      "shortDescription": "A robed figure with thoughtful eyes.",
+      "longDescription": "Lina the Quiet watches everything with calm curiosity, missing nothing.",
+      "startingRoom": "entrance",
+      "appearanceInRoom": "{name} stands silently nearby."
+    },
+    {
+      "id": "torin_the_swift",
+      "name": "Torin the Swift",
+      "shortDescription": "A lean scout with quick reflexes.",
+      "longDescription": "Torin the Swift shifts his weight from foot to foot, never quite still.",
+      "startingRoom": "hallway",
+      "appearanceInRoom": "{name} scans the area restlessly."
+    },
+    {
+      "id": "mira_the_clever",
+      "name": "Mira the Clever",
+      "shortDescription": "An alchemist with ink-stained fingers.",
+      "longDescription": "Mira the Clever peers around, muttering half-formed theories under her breath.",
+      "startingRoom": "entrance",
+      "appearanceInRoom": "{name} studies every corner thoughtfully."
+    },
+    {
+      "id": "grom_the_gruff",
+      "name": "Grom the Gruff",
+      "shortDescription": "A stocky dwarf with a heavy hammer.",
+      "longDescription": "Grom the Gruff grumbles as if the stone itself has offended him.",
+      "startingRoom": "hallway",
+      "appearanceInRoom": "{name} stands firm, arms crossed."
+    },
+    {
+      "id": "selene_the_shadow",
+      "name": "Selene the Shadow",
+      "shortDescription": "A cloaked figure who moves like smoke.",
+      "longDescription": "Selene the Shadow seems half-present, half-vanished at the edges of your vision.",
+      "startingRoom": "entrance",
+      "appearanceInRoom": "{name} lingers at the edge of the light."
+    },
+    {
+      "id": "finn_the_fearless",
+      "name": "Finn the Fearless",
+      "shortDescription": "A bard with a battered lute.",
+      "longDescription": "Finn the Fearless hums a tune that almost drowns out the dripping.",
+      "startingRoom": "hallway",
+      "appearanceInRoom": "{name} hums a jaunty tune."
+    },
+    {
+      "id": "nyx_the_mystic",
+      "name": "Nyx the Mystic",
+      "shortDescription": "A seer with star-silver eyes.",
+      "longDescription": "Nyx the Mystic stares into the middle distance, as if seeing something far away.",
+      "startingRoom": "entrance",
+      "appearanceInRoom": "{name} gazes into unseen horizons."
+    },
+    {
+      "id": "orla_the_stoic",
+      "name": "Orla the Stoic",
+      "shortDescription": "A knight whose armor bears many marks.",
+      "longDescription": "Orla the Stoic stands ready, calm and steady no matter what comes.",
+      "startingRoom": "hallway",
+      "appearanceInRoom": "{name} stands guard, unflinching."
+    },
+    {
+      "id": "jax_the_jester",
+      "name": "Jax the Jester",
+      "shortDescription": "A trickster with a sly grin.",
+      "longDescription": "Jax the Jester shifts from foot to foot, eyes sparkling with mischief.",
+      "startingRoom": "entrance",
+      "appearanceInRoom": "{name} grins, clearly up to something."
+    }
+  ]
+}
+

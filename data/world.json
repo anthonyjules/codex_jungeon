@@ -1,0 +1,87 @@
+{
+  "worldName": "The Jungeon",
+  "rooms": [
+    {
+      "id": "entrance",
+      "name": "Dungeon Entrance",
+      "description": "A damp stone archway leads into darkness. A cold breeze brushes past you as if the dungeon itself has taken notice.",
+      "exits": {
+        "north": "hallway"
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": true,
+          "min": 1,
+          "max": 3,
+          "intervalSeconds": 300
+        }
+      },
+      "objects": [
+        {
+          "id": "stone_button",
+          "name": "stone button",
+          "description": "A worn stone button is set into the wall at shoulder height.",
+          "verbs": ["touch", "press"],
+          "state": "idle"
+        }
+      ],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) glinting on the floor.",
+        "emptyCoinsTemplate": "The floor is bare and dusty.",
+        "charactersTemplate": "{names} are here."
+      }
+    },
+    {
+      "id": "hallway",
+      "name": "Narrow Hallway",
+      "description": "The walls are slick with moisture. The corridor stretches into shadow both east and west.",
+      "exits": {
+        "south": "entrance",
+        "east": "treasure_room"
+      },
+      "coins": {
+        "initial": 0,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "Loose coins sparkle in the gloom.",
+        "emptyCoinsTemplate": "You hear only distant dripping.",
+        "charactersTemplate": "{names} linger here."
+      }
+    },
+    {
+      "id": "treasure_room",
+      "name": "Treasure Room",
+      "description": "Piles of broken chests and scattered trinkets lie here, remnants of earlier adventurers.",
+      "exits": {
+        "west": "hallway"
+      },
+      "coins": {
+        "initial": 10,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [
+        {
+          "id": "ancient_chest",
+          "name": "ancient chest",
+          "description": "An ancient chest with iron bands, slightly ajar.",
+          "verbs": ["open"],
+          "state": "closed"
+        }
+      ],
+      "appearance": {
+        "coinsTemplate": "Gold coins spill from broken chests; you count {coinCount}.",
+        "emptyCoinsTemplate": "The gold is gone, leaving only splinters and dust.",
+        "charactersTemplate": "{names} revel in the fading glory."
+      }
+    }
+  ],
+  "allowedObjectVerbs": ["touch", "open", "press"]
+}
+

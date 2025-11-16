@@ -1,0 +1,12 @@
+{
+  "emotes": {
+    "dance": "starts dancing enthusiastically.",
+    "jump": "jumps up and down.",
+    "smile": "smiles warmly.",
+    "burp": "lets out a loud burp.",
+    "sneeze": "sneezes loudly.",
+    "cough": "coughs into their hand."
+  },
+  "objectVerbs": ["touch", "open", "press"]
+}
+

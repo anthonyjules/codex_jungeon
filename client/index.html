@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Jungeon</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="overlay">
+        <div id="login-panel">
+          <h1>The Jungeon</h1>
+          <p>Select your character to enter the dungeon:</p>
+          <div id="character-list"></div>
+          <div id="login-error" class="error"></div>
+        </div>
+      </div>
+
+      <div id="main-layout">
+        <div id="left-pane">
+          <div id="log"></div>
+          <div id="input-bar">
+            <input
+              id="command-input"
+              type="text"
+              autocomplete="off"
+              placeholder="Type a command (e.g. 'go north', 'collect', '/sneeze') and press Enter..."
+            />
+          </div>
+        </div>
+        <div id="right-pane">
+          <h2>Character</h2>
+          <div id="character-name">Not logged in</div>
+          <div id="character-description"></div>
+          <h2>Inventory</h2>
+          <div>Gold coins: <span id="gold-count">0</span></div>
+          <h2>Room</h2>
+          <div id="room-name"></div>
+          <div id="room-exits"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+  </html>
+

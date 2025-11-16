@@ -1,0 +1,164 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #111;
+  color: #f0f0f0;
+}
+
+#app {
+  height: 100%;
+}
+
+#main-layout {
+  display: flex;
+  height: 100%;
+}
+
+#left-pane {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+}
+
+#log {
+  flex: 9;
+  padding: 8px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 14px;
+}
+
+#input-bar {
+  flex: 1;
+  border-top: 1px solid #333;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+#command-input {
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #000;
+  color: #f0f0f0;
+  font-family: inherit;
+}
+
+#command-input:focus {
+  outline: none;
+  border-color: #888;
+}
+
+#right-pane {
+  flex: 1;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#right-pane h2 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+  border-bottom: 1px solid #333;
+}
+
+#character-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+#character-description {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+#room-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+#room-exits {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.log-line {
+  margin-bottom: 4px;
+}
+
+.log-line.event {
+  color: #d0d0ff;
+}
+
+.log-line.error {
+  color: #ff8080;
+}
+
+.log-line.system {
+  color: #80ffc0;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#login-panel {
+  background-color: #181818;
+  border-radius: 8px;
+  border: 1px solid #333;
+  padding: 16px 20px;
+  min-width: 320px;
+}
+
+#login-panel h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+#character-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 8px;
+}
+
+.character-option {
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+.character-option:hover {
+  border-color: #888;
+  background-color: #202020;
+}
+
+.character-option-name {
+  font-weight: bold;
+}
+
+.character-option-description {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.error {
+  color: #ff8080;
+  margin-top: 8px;
+}
+
