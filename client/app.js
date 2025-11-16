@@ -9,6 +9,9 @@
   const goldCountEl = document.getElementById("gold-count");
   const roomNameEl = document.getElementById("room-name");
   const roomExitsEl = document.getElementById("room-exits");
+  const inventoryItemsEl = document.getElementById("inventory-items");
+  const minimapEl = document.getElementById("minimap");
+  const controlButtons = document.querySelectorAll("[data-command]");
 
   let sessionId = null;
   let ws = null;
@@ -134,6 +137,24 @@
       }
       if (data.exits) {
         roomExitsEl.textContent = `Exits: ${data.exits.join(", ")}`;
+        const exitsSet = new Set(data.exits.map((e) => String(e).toLowerCase()));
+        controlButtons.forEach((btn) => {
+          const cmd = (btn.dataset.command || "").toLowerCase();
+          if (cmd === "n" || cmd === "s" || cmd === "e" || cmd === "w") {
+            const needed =
+              cmd === "n"
+                ? "north"
+                : cmd === "s"
+                ? "south"
+                : cmd === "e"
+                ? "east"
+                : "west";
+            btn.disabled = !exitsSet.has(needed);
+          }
+        });
+      }
+      if (data.minimap && minimapEl) {
+        minimapEl.textContent = data.minimap;
       }
       if (data.description) {
         appendLog(`\n${data.name}\n${data.description}`, "normal");
@@ -143,6 +164,14 @@
     } else if (type === "inventory") {
       if (typeof data.coins === "number") {
         goldCountEl.textContent = String(data.coins);
+      }
+      if (Array.isArray(data.items) && inventoryItemsEl) {
+        inventoryItemsEl.innerHTML = "";
+        data.items.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item.name;
+          inventoryItemsEl.appendChild(li);
+        });
       }
     } else if (type === "error") {
       if (data.message) appendLog(data.message, "error");
@@ -160,6 +189,19 @@
     }
   });
 
+  controlButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!ws || ws.readyState !== WebSocket.OPEN) {
+        return;
+      }
+      if (btn.disabled) {
+        return;
+      }
+      const cmd = btn.dataset.command;
+      if (!cmd) return;
+      ws.send(JSON.stringify({ type: "command", input: cmd }));
+    });
+  });
+
   fetchAvailableCharacters();
 })();
-

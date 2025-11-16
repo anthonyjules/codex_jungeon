@@ -90,6 +90,74 @@ body {
   color: #ccc;
 }
 
+#controls {
+  margin-top: 8px;
+}
+
+#direction-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#direction-buttons > button {
+  margin-bottom: 2px;
+}
+
+#direction-buttons > div > button {
+  margin: 0 2px;
+}
+
+#action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.control-button {
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #111;
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+.control-button:hover {
+  border-color: #888;
+  background-color: #222;
+}
+
+.control-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #333;
+  background-color: #111;
+}
+
+#inventory-items {
+  list-style: disc;
+  padding-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+#minimap {
+  font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 12px;
+  line-height: 1.1;
+  padding: 4px;
+  background-color: #050505;
+  border-radius: 4px;
+  border: 1px solid #333;
+  margin-top: 4px;
+}
+
 .log-line {
   margin-bottom: 4px;
 }
@@ -161,4 +229,3 @@ body {
   color: #ff8080;
   margin-top: 8px;
 }
-

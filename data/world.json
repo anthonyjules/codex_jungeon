@@ -2,43 +2,1981 @@
   "worldName": "The Jungeon",
   "rooms": [
     {
-      "id": "entrance",
-      "name": "Dungeon Entrance",
-      "description": "A damp stone archway leads into darkness. A cold breeze brushes past you as if the dungeon itself has taken notice.",
+      "id": "room_0",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
       "exits": {
-        "north": "hallway"
+        "south": {
+          "target": "room_1",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_13"
+      ]
+    },
+    {
+      "id": "room_1",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_2",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_0",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 1,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_12"
+      ]
+    },
+    {
+      "id": "room_2",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_1",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_3",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_3",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_2",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_4",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_4",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_3",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_5",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_5",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_6",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_4",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_6",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_5",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_7",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 1,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_7",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_6",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_8",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_8",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_9",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_7",
+          "locked": false,
+          "keyId": null
+        }
       },
       "coins": {
         "initial": 5,
         "respawn": {
-          "enabled": true,
-          "min": 1,
-          "max": 3,
-          "intervalSeconds": 300
+          "enabled": false
         }
       },
-      "objects": [
-        {
-          "id": "stone_button",
-          "name": "stone button",
-          "description": "A worn stone button is set into the wall at shoulder height.",
-          "verbs": ["touch", "press"],
-          "state": "idle"
-        }
-      ],
+      "objects": [],
       "appearance": {
-        "coinsTemplate": "You see {coinCount} gold coin(s) glinting on the floor.",
-        "emptyCoinsTemplate": "The floor is bare and dusty.",
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
         "charactersTemplate": "{names} are here."
-      }
+      },
+      "items": []
     },
     {
-      "id": "hallway",
-      "name": "Narrow Hallway",
-      "description": "The walls are slick with moisture. The corridor stretches into shadow both east and west.",
+      "id": "room_9",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
       "exits": {
-        "south": "entrance",
-        "east": "treasure_room"
+        "west": {
+          "target": "room_8",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_10",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_10",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_9",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_11",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 7,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_10"
+      ]
+    },
+    {
+      "id": "room_11",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_10",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_12",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_20"
+      ]
+    },
+    {
+      "id": "room_12",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_13",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_11",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_18"
+      ]
+    },
+    {
+      "id": "room_13",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_12",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_14",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_0"
+      ]
+    },
+    {
+      "id": "room_14",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_15",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_13",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_15",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_14",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_16",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_7"
+      ]
+    },
+    {
+      "id": "room_16",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_15",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_17",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_16"
+      ]
+    },
+    {
+      "id": "room_17",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_16",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_18",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_18",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_19",
+          "locked": true,
+          "keyId": "key_9"
+        },
+        "east": {
+          "target": "room_17",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_11"
+      ]
+    },
+    {
+      "id": "room_19",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_18",
+          "locked": true,
+          "keyId": "key_9"
+        },
+        "south": {
+          "target": "room_20",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 7,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_1"
+      ]
+    },
+    {
+      "id": "room_20",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_19",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_21",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_21",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_20",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_22",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_22",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_23",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_21",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_4"
+      ]
+    },
+    {
+      "id": "room_23",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_22",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_24",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_17"
+      ]
+    },
+    {
+      "id": "room_24",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_23",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_25",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_25",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_24",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_26",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 7,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_26",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_25",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_27",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_27",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_26",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_28",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 7,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_28",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_27",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_29",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_29",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_28",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_30",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_19"
+      ]
+    },
+    {
+      "id": "room_30",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_31",
+          "locked": true,
+          "keyId": "key_4"
+        },
+        "south": {
+          "target": "room_29",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_31",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_30",
+          "locked": true,
+          "keyId": "key_4"
+        },
+        "west": {
+          "target": "room_32",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_32",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_31",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_33",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_14"
+      ]
+    },
+    {
+      "id": "room_33",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_32",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_34",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_34",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_33",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_35",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_35",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_36",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_34",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_36",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_35",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_37",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_37",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_36",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_38",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_3"
+      ]
+    },
+    {
+      "id": "room_38",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_39",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_37",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_4"
+      ]
+    },
+    {
+      "id": "room_39",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_38",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_40",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_40",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_41",
+          "locked": true,
+          "keyId": "key_0"
+        },
+        "east": {
+          "target": "room_39",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_41",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_40",
+          "locked": true,
+          "keyId": "key_0"
+        },
+        "north": {
+          "target": "room_42",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 8,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_42",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_41",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_43",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 7,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_8"
+      ]
+    },
+    {
+      "id": "room_43",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_42",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_44",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_44",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_45",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_43",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_45",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_44",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_46",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_46",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_45",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_47",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_47",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_48",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_46",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_5"
+      ]
+    },
+    {
+      "id": "room_48",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_47",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_49",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_49",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_48",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_50",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_6"
+      ]
+    },
+    {
+      "id": "room_50",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_49",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_51",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_51",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_50",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_52",
+          "locked": true,
+          "keyId": "key_5"
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_52",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_51",
+          "locked": true,
+          "keyId": "key_5"
+        },
+        "south": {
+          "target": "room_53",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_53",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_52",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_54",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_8"
+      ]
+    },
+    {
+      "id": "room_54",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_53",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_55",
+          "locked": true,
+          "keyId": "key_1"
+        }
+      },
+      "coins": {
+        "initial": 1,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_2"
+      ]
+    },
+    {
+      "id": "room_55",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_56",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_54",
+          "locked": true,
+          "keyId": "key_1"
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_22"
+      ]
+    },
+    {
+      "id": "room_56",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_55",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_57",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_57",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_56",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_58",
+          "locked": true,
+          "keyId": "key_3"
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_58",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_57",
+          "locked": true,
+          "keyId": "key_3"
+        },
+        "west": {
+          "target": "room_59",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_59",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_58",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_60",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_7"
+      ]
+    },
+    {
+      "id": "room_60",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_61",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_59",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_61",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_60",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_62",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_62",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_61",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_63",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_63",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_62",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_64",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_64",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_65",
+          "locked": true,
+          "keyId": "key_7"
+        },
+        "north": {
+          "target": "room_63",
+          "locked": false,
+          "keyId": null
+        }
       },
       "coins": {
         "initial": 0,
@@ -48,40 +1986,1290 @@
       },
       "objects": [],
       "appearance": {
-        "coinsTemplate": "Loose coins sparkle in the gloom.",
-        "emptyCoinsTemplate": "You hear only distant dripping.",
-        "charactersTemplate": "{names} linger here."
-      }
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
     },
     {
-      "id": "treasure_room",
-      "name": "Treasure Room",
-      "description": "Piles of broken chests and scattered trinkets lie here, remnants of earlier adventurers.",
+      "id": "room_65",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
       "exits": {
-        "west": "hallway"
+        "east": {
+          "target": "room_64",
+          "locked": true,
+          "keyId": "key_7"
+        },
+        "south": {
+          "target": "room_66",
+          "locked": false,
+          "keyId": null
+        }
       },
       "coins": {
-        "initial": 10,
+        "initial": 5,
         "respawn": {
           "enabled": false
         }
       },
-      "objects": [
-        {
-          "id": "ancient_chest",
-          "name": "ancient chest",
-          "description": "An ancient chest with iron bands, slightly ajar.",
-          "verbs": ["open"],
-          "state": "closed"
-        }
-      ],
+      "objects": [],
       "appearance": {
-        "coinsTemplate": "Gold coins spill from broken chests; you count {coinCount}.",
-        "emptyCoinsTemplate": "The gold is gone, leaving only splinters and dust.",
-        "charactersTemplate": "{names} revel in the fading glory."
-      }
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_21"
+      ]
+    },
+    {
+      "id": "room_66",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_65",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_67",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_6"
+      ]
+    },
+    {
+      "id": "room_67",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_68",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_66",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 1,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_5"
+      ]
+    },
+    {
+      "id": "room_68",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_67",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_69",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_1"
+      ]
+    },
+    {
+      "id": "room_69",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_68",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_70",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 1,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_70",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_69",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_71",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_71",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_72",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_70",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_72",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_73",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_71",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_73",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_72",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_74",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_74",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_73",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_75",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_75",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_74",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_76",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_76",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_75",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_77",
+          "locked": true,
+          "keyId": "key_8"
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_77",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_78",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_76",
+          "locked": true,
+          "keyId": "key_8"
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_78",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_77",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_79",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_79",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_78",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_80",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 0,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_80",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_81",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_79",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_81",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_80",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_82",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_82",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_81",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_83",
+          "locked": true,
+          "keyId": "key_2"
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_83",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_82",
+          "locked": true,
+          "keyId": "key_2"
+        },
+        "north": {
+          "target": "room_84",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_84",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_83",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_85",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_85",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_86",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_84",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_86",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_85",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_87",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_87",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_86",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_88",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 2,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_88",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_87",
+          "locked": false,
+          "keyId": null
+        },
+        "west": {
+          "target": "room_89",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_89",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_90",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_88",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_3"
+      ]
+    },
+    {
+      "id": "room_90",
+      "name": "Dusty Hall",
+      "description": "A dusty hall carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_89",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_91",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_9"
+      ]
+    },
+    {
+      "id": "room_91",
+      "name": "Echoing Cellar",
+      "description": "A echoing cellar carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_90",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_92",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_92",
+      "name": "Shadowed Antechamber",
+      "description": "A shadowed antechamber carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "south": {
+          "target": "room_91",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_93",
+          "locked": true,
+          "keyId": "key_6"
+        }
+      },
+      "coins": {
+        "initial": 1,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_93",
+      "name": "Dripping Vault",
+      "description": "A dripping vault carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_94",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_92",
+          "locked": true,
+          "keyId": "key_6"
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_94",
+      "name": "Cracked Passage",
+      "description": "A cracked passage carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_93",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_95",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 6,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_2"
+      ]
+    },
+    {
+      "id": "room_95",
+      "name": "Twisting Gallery",
+      "description": "A twisting gallery carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_94",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_96",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_96",
+      "name": "Silent Crypt",
+      "description": "A silent crypt carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "east": {
+          "target": "room_97",
+          "locked": false,
+          "keyId": null
+        },
+        "north": {
+          "target": "room_95",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 5,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": []
+    },
+    {
+      "id": "room_97",
+      "name": "Icy Cavern",
+      "description": "A icy cavern carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_96",
+          "locked": false,
+          "keyId": null
+        },
+        "east": {
+          "target": "room_98",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "key_9"
+      ]
+    },
+    {
+      "id": "room_98",
+      "name": "Stifling Library",
+      "description": "A stifling library carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "west": {
+          "target": "room_97",
+          "locked": false,
+          "keyId": null
+        },
+        "south": {
+          "target": "room_99",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 3,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_0"
+      ]
+    },
+    {
+      "id": "room_99",
+      "name": "Gloomy Guardroom",
+      "description": "A gloomy guardroom carved from damp stone. Faint echoes hint at unseen passages.",
+      "exits": {
+        "north": {
+          "target": "room_98",
+          "locked": false,
+          "keyId": null
+        }
+      },
+      "coins": {
+        "initial": 4,
+        "respawn": {
+          "enabled": false
+        }
+      },
+      "objects": [],
+      "appearance": {
+        "coinsTemplate": "You see {coinCount} gold coin(s) scattered about.",
+        "emptyCoinsTemplate": "You see no coins here.",
+        "charactersTemplate": "{names} are here."
+      },
+      "items": [
+        "item_15"
+      ]
     }
   ],
-  "allowedObjectVerbs": ["touch", "open", "press"]
+  "items": {
+    "key_0": {
+      "name": "Strange Key #1",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_0"
+    },
+    "key_1": {
+      "name": "Strange Key #2",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_1"
+    },
+    "key_2": {
+      "name": "Strange Key #3",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_2"
+    },
+    "key_3": {
+      "name": "Strange Key #4",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_3"
+    },
+    "key_4": {
+      "name": "Strange Key #5",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_4"
+    },
+    "key_5": {
+      "name": "Strange Key #6",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_5"
+    },
+    "key_6": {
+      "name": "Strange Key #7",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_6"
+    },
+    "key_7": {
+      "name": "Strange Key #8",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_7"
+    },
+    "key_8": {
+      "name": "Strange Key #9",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_8"
+    },
+    "key_9": {
+      "name": "Strange Key #10",
+      "description": "a heavy iron key with jagged teeth",
+      "isKey": true,
+      "keyId": "key_9"
+    },
+    "item_0": {
+      "name": "a tarnished silver ring",
+      "description": "a tarnished silver ring",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_1": {
+      "name": "a cracked emerald amulet",
+      "description": "a cracked emerald amulet",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_2": {
+      "name": "a small brass compass",
+      "description": "a small brass compass",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_3": {
+      "name": "a rune-etched stone",
+      "description": "a rune-etched stone",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_4": {
+      "name": "a faded leather bookmark",
+      "description": "a faded leather bookmark",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_5": {
+      "name": "a glass vial of swirling mist",
+      "description": "a glass vial of swirling mist",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_6": {
+      "name": "a chipped obsidian dagger",
+      "description": "a chipped obsidian dagger",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_7": {
+      "name": "a delicate bone flute",
+      "description": "a delicate bone flute",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_8": {
+      "name": "a copper coin with a square hole",
+      "description": "a copper coin with a square hole",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_9": {
+      "name": "a fragment of a stained map",
+      "description": "a fragment of a stained map",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_10": {
+      "name": "a smooth stone painted with an eye",
+      "description": "a smooth stone painted with an eye",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_11": {
+      "name": "a tiny clockwork beetle",
+      "description": "a tiny clockwork beetle",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_12": {
+      "name": "a lock of hair tied with red string",
+      "description": "a lock of hair tied with red string",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_13": {
+      "name": "a silver bell that makes no sound",
+      "description": "a silver bell that makes no sound",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_14": {
+      "name": "a wax-sealed black envelope",
+      "description": "a wax-sealed black envelope",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_15": {
+      "name": "a bronze key-shaped brooch",
+      "description": "a bronze key-shaped brooch",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_16": {
+      "name": "a tarnished silver ring",
+      "description": "a tarnished silver ring",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_17": {
+      "name": "a cracked emerald amulet",
+      "description": "a cracked emerald amulet",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_18": {
+      "name": "a small brass compass",
+      "description": "a small brass compass",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_19": {
+      "name": "a rune-etched stone",
+      "description": "a rune-etched stone",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_20": {
+      "name": "a faded leather bookmark",
+      "description": "a faded leather bookmark",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_21": {
+      "name": "a glass vial of swirling mist",
+      "description": "a glass vial of swirling mist",
+      "isKey": false,
+      "keyId": null
+    },
+    "item_22": {
+      "name": "a chipped obsidian dagger",
+      "description": "a chipped obsidian dagger",
+      "isKey": false,
+      "keyId": null
+    }
+  },
+  "ghosts": {
+    "ghost_0": {
+      "roomId": "room_69",
+      "description": "a translucent knight with empty, burning eyes"
+    },
+    "ghost_1": {
+      "roomId": "room_96",
+      "description": "a tattered-robed specter that drips shadow"
+    },
+    "ghost_2": {
+      "roomId": "room_36",
+      "description": "a towering phantom crowned in jagged bone"
+    }
+  }
 }
-

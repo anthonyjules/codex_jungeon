@@ -34,9 +34,29 @@
           <div id="character-description"></div>
           <h2>Inventory</h2>
           <div>Gold coins: <span id="gold-count">0</span></div>
+          <ul id="inventory-items"></ul>
           <h2>Room</h2>
           <div id="room-name"></div>
           <div id="room-exits"></div>
+          <h2>Map</h2>
+          <pre id="minimap"></pre>
+          <h2>Controls</h2>
+          <div id="controls">
+            <div id="direction-buttons">
+              <button class="control-button" data-command="n">N</button>
+              <div>
+                <button class="control-button" data-command="w">W</button>
+                <button class="control-button" data-command="s">S</button>
+                <button class="control-button" data-command="e">E</button>
+              </div>
+            </div>
+            <div id="action-buttons">
+              <button class="control-button" data-command="look">Look</button>
+              <button class="control-button" data-command="collect">Collect</button>
+              <button class="control-button" data-command="drop">Drop</button>
+              <button class="control-button" data-command="take all">Take All</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -44,4 +64,3 @@
     <script src="/static/app.js"></script>
   </body>
   </html>
-

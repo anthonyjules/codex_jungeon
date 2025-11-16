@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import asyncio
+import random
 import uuid
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -102,6 +104,11 @@ class ServerMessage(BaseModel):
     data: Dict[str, Any]
 
 
+class DebugSnapshot(BaseModel):
+    roomState: Dict[str, Any]
+    inventory: Dict[str, Any]
+
+
 async def send_room_state(ws: WebSocket, player_id: str) -> None:
     room_info = await world.describe_room_for_player(player_id)
     await ws.send_json(
@@ -125,6 +132,13 @@ def parse_command_input(text: str) -> Dict[str, Any]:
         return {"action": "noop"}
     verb = parts[0].lower()
     args = parts[1:]
+
+    direction_aliases = {"n": "north", "s": "south", "e": "east", "w": "west"}
+    if verb in direction_aliases and not args:
+        return {"action": "go", "args": [direction_aliases[verb]]}
+    if verb in {"north", "south", "east", "west"} and not args:
+        return {"action": "go", "args": [verb]}
+
     return {"action": verb, "args": args}
 
 
@@ -147,6 +161,45 @@ async def broadcast_event_to_room(
         except RuntimeError:
             # Ignore send errors; connection cleanup happens on disconnect.
             continue
+
+
+@app.on_event("startup")
+async def start_background_tasks() -> None:
+    async def ghost_worker() -> None:
+        # Small initial delay to allow the server to start.
+        await asyncio.sleep(3)
+        while True:
+            await asyncio.sleep(random.uniform(8, 20))
+            events = await world.move_ghosts_and_collect_events()
+            if not events:
+                continue
+            for pid, texts in events.items():
+                ws = connections.get(pid)
+                if not ws:
+                    continue
+                for text in texts:
+                    try:
+                        await ws.send_json(
+                            ServerMessage(
+                                type="event",
+                                data={"text": text},
+                            ).model_dump()
+                        )
+                    except RuntimeError:
+                        # Ignore send errors; connection cleanup happens on disconnect.
+                        continue
+
+    asyncio.create_task(ghost_worker())
+
+
+@app.get("/api/debug/session/{session_id}", response_model=DebugSnapshot)
+async def debug_session(session_id: str) -> DebugSnapshot:
+    session = sessions.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    room_info = await world.describe_room_for_player(session.player_id)
+    inventory = await world.get_inventory(session.player_id)
+    return DebugSnapshot(roomState=room_info, inventory=inventory)
 
 
 @app.websocket("/ws")
@@ -220,6 +273,31 @@ async def websocket_endpoint(ws: WebSocket) -> None:
                         ).model_dump()
                     )
                     await send_room_state(ws, player_id)
+                elif action == "take":
+                    args = parsed.get("args") or []
+                    query = " ".join(args) if args else None
+                    info = await world.take_items(player_id, query)
+                    taken = info.get("taken") or []
+                    if taken:
+                        taken_text = ", ".join(taken)
+                        await ws.send_json(
+                            ServerMessage(
+                                type="event",
+                                data={"text": f"You take {taken_text}."},
+                            ).model_dump()
+                        )
+                        await broadcast_event_to_room(
+                            player_id,
+                            "Someone picks something up nearby.",
+                            include_self=False,
+                        )
+                    inventory = await world.get_inventory(player_id)
+                    await ws.send_json(
+                        ServerMessage(
+                            type="inventory",
+                            data=inventory,
+                        ).model_dump()
+                    )
                 elif action == "look":
                     await send_room_state(ws, player_id)
                 elif action == "emote":
