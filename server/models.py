@@ -70,6 +70,14 @@ class PlayerState:
     coins: int = 0
     items: List[str] = field(default_factory=list)
 
+    def create_save(self) -> "CharacterSave":
+        return CharacterSave(
+            character_id=self.character_id,
+            room_id=self.room_id,
+            coins=self.coins,
+            items=list(self.items),
+        )
+
 
 @dataclass
 class GhostState:
