@@ -1,207 +1,112 @@
-(() => {
-  const logEl = document.getElementById("log");
-  const inputEl = document.getElementById("command-input");
-  const overlayEl = document.getElementById("overlay");
-  const characterListEl = document.getElementById("character-list");
-  const loginErrorEl = document.getElementById("login-error");
-  const characterNameEl = document.getElementById("character-name");
-  const characterDescEl = document.getElementById("character-description");
-  const goldCountEl = document.getElementById("gold-count");
-  const roomNameEl = document.getElementById("room-name");
-  const roomExitsEl = document.getElementById("room-exits");
-  const inventoryItemsEl = document.getElementById("inventory-items");
-  const minimapEl = document.getElementById("minimap");
-  const controlButtons = document.querySelectorAll("[data-command]");
+import { UiController } from "./modules/ui.js";
+import {
+  fetchAvailableCharacters,
+  loginWithCharacter,
+  createWebSocket,
+} from "./modules/network.js";
 
-  let sessionId = null;
-  let ws = null;
-  let currentCharacter = null;
-
-  function appendLog(text, kind = "normal") {
-    const div = document.createElement("div");
-    div.className = `log-line ${kind}`;
-    div.textContent = text;
-    logEl.appendChild(div);
-    logEl.scrollTop = logEl.scrollHeight;
+class GameClient {
+  constructor(ui) {
+    this.ui = ui;
+    this.sessionId = null;
+    this.ws = null;
+    this.currentCharacter = null;
   }
 
-  async function fetchAvailableCharacters() {
+  async init() {
+    this.ui.bindCommandInput((value) => this.sendCommand(value));
+    this.ui.bindControlButtons((cmd) => this.sendCommand(cmd));
+    await this.loadCharacters();
+  }
+
+  async loadCharacters() {
     try {
-      const res = await fetch("/api/characters/available");
-      if (!res.ok) {
-        throw new Error("Failed to fetch characters");
-      }
-      const data = await res.json();
-      renderCharacterOptions(data.characters || []);
+      const data = await fetchAvailableCharacters();
+      const characters = data.characters || [];
+      this.ui.renderCharacters(characters, (character) =>
+        this.login(character)
+      );
+      this.ui.setLoginError("");
     } catch (err) {
-      loginErrorEl.textContent =
-        "Could not load characters. Is the server running?";
+      this.ui.setLoginError(
+        "Could not load characters. Is the server running?"
+      );
     }
   }
 
-  function renderCharacterOptions(characters) {
-    characterListEl.innerHTML = "";
-    if (!characters.length) {
-      const msg = document.createElement("div");
-      msg.textContent = "No characters are currently available.";
-      characterListEl.appendChild(msg);
-      return;
-    }
-    characters.forEach((c) => {
-      const div = document.createElement("div");
-      div.className = "character-option";
-      div.dataset.characterId = c.id;
-
-      const name = document.createElement("div");
-      name.className = "character-option-name";
-      name.textContent = c.name;
-
-      const desc = document.createElement("div");
-      desc.className = "character-option-description";
-      desc.textContent = c.shortDescription;
-
-      div.appendChild(name);
-      div.appendChild(desc);
-      div.addEventListener("click", () => loginWithCharacter(c));
-      characterListEl.appendChild(div);
-    });
-  }
-
-  async function loginWithCharacter(character) {
+  async login(character) {
     try {
-      loginErrorEl.textContent = "";
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ characterId: character.id }),
-      });
-      if (!res.ok) {
-        throw new Error("Login failed");
-      }
-      const data = await res.json();
-      sessionId = data.sessionId;
-      currentCharacter = {
+      this.ui.setLoginError("");
+      const data = await loginWithCharacter(character.id);
+      this.sessionId = data.sessionId;
+      this.currentCharacter = {
         id: data.characterId,
         name: data.playerName,
       };
-      onLoggedIn();
-      connectWebSocket();
+      this.onLoggedIn();
+      this.connectWebSocket();
     } catch (err) {
-      loginErrorEl.textContent =
-        "Login failed. The character may have been taken.";
-      await fetchAvailableCharacters();
+      this.ui.setLoginError(
+        "Login failed. The character may have been taken."
+      );
+      await this.loadCharacters();
     }
   }
 
-  function onLoggedIn() {
-    overlayEl.style.display = "none";
-    characterNameEl.textContent = currentCharacter.name;
-    characterDescEl.textContent = "";
-    inputEl.focus();
-    appendLog(`You enter the Jungeon as ${currentCharacter.name}.`, "system");
+  onLoggedIn() {
+    this.ui.showOverlay(false);
+    this.ui.setCharacterInfo(this.currentCharacter.name);
+    this.ui.focusInput();
+    this.ui.appendLog(
+      `You enter the Jungeon as ${this.currentCharacter.name}.`,
+      "system"
+    );
   }
 
-  function connectWebSocket() {
-    const proto = window.location.protocol === "https:" ? "wss" : "ws";
-    const url = `${proto}://${window.location.host}/ws?sessionId=${encodeURIComponent(
-      sessionId
-    )}`;
-    ws = new WebSocket(url);
+  connectWebSocket() {
+    if (!this.sessionId) {
+      return;
+    }
 
-    ws.addEventListener("open", () => {
-      appendLog("Connection to the dungeon established.", "system");
-    });
-
-    ws.addEventListener("message", (event) => {
-      try {
-        const msg = JSON.parse(event.data);
-        handleServerMessage(msg);
-      } catch {
-        // Ignore malformed messages
-      }
-    });
-
-    ws.addEventListener("close", () => {
-      appendLog(
-        "Your connection to the dungeon has been lost.",
-        "error"
-      );
+    this.ws = createWebSocket(this.sessionId, {
+      onOpen: () => {
+        this.ui.appendLog("Connection to the dungeon established.", "system");
+      },
+      onMessage: (msg) => this.handleServerMessage(msg),
+      onClose: () => {
+        this.ui.appendLog(
+          "Your connection to the dungeon has been lost.",
+          "error"
+        );
+      },
     });
   }
 
-  function handleServerMessage(msg) {
+  handleServerMessage(msg) {
     const { type, data } = msg;
     if (type === "roomState") {
-      if (data.name) {
-        roomNameEl.textContent = data.name;
-      }
-      if (data.exits) {
-        roomExitsEl.textContent = `Exits: ${data.exits.join(", ")}`;
-        const exitsSet = new Set(data.exits.map((e) => String(e).toLowerCase()));
-        controlButtons.forEach((btn) => {
-          const cmd = (btn.dataset.command || "").toLowerCase();
-          if (cmd === "n" || cmd === "s" || cmd === "e" || cmd === "w") {
-            const needed =
-              cmd === "n"
-                ? "north"
-                : cmd === "s"
-                ? "south"
-                : cmd === "e"
-                ? "east"
-                : "west";
-            btn.disabled = !exitsSet.has(needed);
-          }
-        });
-      }
-      if (data.minimap && minimapEl) {
-        minimapEl.textContent = data.minimap;
-      }
-      if (data.description) {
-        appendLog(`\n${data.name}\n${data.description}`, "normal");
-      }
+      this.ui.renderRoom(data);
     } else if (type === "event") {
-      if (data.text) appendLog(data.text, "event");
+      if (data.text) {
+        this.ui.appendLog(data.text, "event");
+      }
     } else if (type === "inventory") {
-      if (typeof data.coins === "number") {
-        goldCountEl.textContent = String(data.coins);
-      }
-      if (Array.isArray(data.items) && inventoryItemsEl) {
-        inventoryItemsEl.innerHTML = "";
-        data.items.forEach((item) => {
-          const li = document.createElement("li");
-          li.textContent = item.name;
-          inventoryItemsEl.appendChild(li);
-        });
-      }
+      this.ui.renderInventory(data);
     } else if (type === "error") {
-      if (data.message) appendLog(data.message, "error");
+      if (data.message) {
+        this.ui.appendLog(data.message, "error");
+      }
     }
   }
 
-  inputEl.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const value = inputEl.value.trim();
-      if (!value || !ws || ws.readyState !== WebSocket.OPEN) {
-        return;
-      }
-      ws.send(JSON.stringify({ type: "command", input: value }));
-      inputEl.value = "";
+  sendCommand(text) {
+    if (!text || !this.ws || this.ws.readyState !== WebSocket.OPEN) {
+      return;
     }
-  });
+    this.ws.send(JSON.stringify({ type: "command", input: text }));
+  }
+}
 
-  controlButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (!ws || ws.readyState !== WebSocket.OPEN) {
-        return;
-      }
-      if (btn.disabled) {
-        return;
-      }
-      const cmd = btn.dataset.command;
-      if (!cmd) return;
-      ws.send(JSON.stringify({ type: "command", input: cmd }));
-    });
-  });
-
-  fetchAvailableCharacters();
-})();
+const ui = new UiController();
+const client = new GameClient(ui);
+client.init();
