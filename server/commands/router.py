@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import Awaitable, Callable, Dict, List, Optional
 
 from ..schemas import ServerMessage
@@ -181,11 +182,13 @@ async def emote_handler(
     emote_text = await world.get_emote_message(player_id, verb)
     if not emote_text:
         raise ValueError("Unknown emote.")
+    player = await world.get_player(player_id)
+    reply_text = _format_self_emote(emote_text, player.name if player else None)
     return CommandResult(
         replies=[
             ServerMessage(
                 type="event",
-                data={"text": f"You {emote_text.split(' ', 1)[1]}"},
+                data={"text": reply_text},
             )
         ],
         broadcasts=[
@@ -225,3 +228,42 @@ async def say_handler(
             )
         ],
     )
+
+
+_WORD_PATTERN = re.compile(r"([A-Za-z']+)(.*)")
+
+
+def _format_self_emote(emote_text: str, player_name: Optional[str]) -> str:
+    """Convert the broadcast emote into a second-person message for the player."""
+    template = emote_text
+    if player_name:
+        prefix = f"{player_name} "
+        if template.startswith(prefix):
+            template = template[len(prefix) :]
+    template = template.lstrip()
+    match = _WORD_PATTERN.match(template)
+    if not match:
+        return f"You {template}".strip()
+    verb, remainder = match.groups()
+    verb = _verb_to_second_person(verb)
+    return f"You {verb}{remainder}"
+
+
+def _verb_to_second_person(verb: str) -> str:
+    lower = verb.lower()
+    if lower.endswith("ies") and len(verb) > 3:
+        base = verb[:-3] + "y"
+    elif lower.endswith("ezes"):
+        base = verb[:-1]
+    elif lower.endswith(("ses", "xes", "zes", "ches", "shes", "oes")):
+        base = verb[:-2]
+    elif lower.endswith("s") and not lower.endswith("ss"):
+        base = verb[:-1]
+    else:
+        base = verb
+
+    if verb.isupper():
+        return base.upper()
+    if verb.istitle():
+        return base.capitalize()
+    return base
