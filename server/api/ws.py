@@ -20,6 +20,33 @@ async def send_inventory(ws: WebSocket, game: GameService, player_id: str) -> No
     await ws.send_json(ServerMessage(type="inventory", data=inventory).model_dump())
 
 
+async def send_online_players(
+    ws: WebSocket, game: GameService, connections: ConnectionManager, exclude_player_id: str | None = None
+) -> None:
+    """Send the list of online players to a specific websocket, excluding the specified player."""
+    player_ids = connections.get_all_connected_player_ids()
+    players = await game.get_online_player_names(player_ids)
+    # Filter out the current player
+    if exclude_player_id:
+        players = [p for p in players if p["playerId"] != exclude_player_id]
+    await ws.send_json(
+        ServerMessage(type="onlinePlayers", data={"players": players}).model_dump()
+    )
+
+
+async def broadcast_online_players_update(
+    game: GameService, connections: ConnectionManager
+) -> None:
+    """Broadcast the updated online players list to all connected clients, excluding each player from their own list."""
+    player_ids = connections.get_all_connected_player_ids()
+    all_players = await game.get_online_player_names(player_ids)
+    # Send personalized list to each player (excluding themselves)
+    for pid in player_ids:
+        other_players = [p for p in all_players if p["playerId"] != pid]
+        payload = ServerMessage(type="onlinePlayers", data={"players": other_players}).model_dump()
+        await connections.send(pid, payload)
+
+
 def create_websocket_endpoint(
     game: GameService,
     world: WorldEngine,
@@ -42,6 +69,9 @@ def create_websocket_endpoint(
 
         await send_room_state(ws, game, player_id)
         await send_inventory(ws, game, player_id)
+        await send_online_players(ws, game, connections, exclude_player_id=player_id)
+        # Broadcast updated list to all other players
+        await broadcast_online_players_update(game, connections)
 
         try:
             while True:
@@ -71,5 +101,7 @@ def create_websocket_endpoint(
             await game.release_player(player_id)
             game.remove_session(session_id)
             connections.detach(player_id)
+            # Broadcast updated list to remaining players
+            await broadcast_online_players_update(game, connections)
 
     return websocket_endpoint
