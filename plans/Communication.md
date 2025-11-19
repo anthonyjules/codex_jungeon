@@ -48,7 +48,11 @@
   * Update `UiController` to render the online players list
 
 ## 1.3 Remove "say" command
-* [ ] Remove the existing `say` command functionality since we now have `/tell` and `/yell` for messaging
+* [x] Remove the existing `say` command functionality since we now have `/tell` and `/yell` for messaging
   * Remove `say_handler` from `server/commands/router.py`
   * Remove `"say": say_handler` from the `_handlers` dictionary in `CommandRouter`
   * The `say` command currently broadcasts messages to all players in the same room - this functionality is replaced by `/tell all` which sends to all online players globally
+  * Updated test to verify `say` is now treated as an unknown command
+
+## 1.4 Add help command
+* [ ] if a user enters `help`, show all available commands

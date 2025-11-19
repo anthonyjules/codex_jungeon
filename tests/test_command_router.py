@@ -83,7 +83,9 @@ async def test_unknown_command(router):
 
 
 @pytest.mark.asyncio()
-async def test_say_without_args_raises(router):
-    command = CommandInput(action="say", args=[])
-    with pytest.raises(ValueError):
-        await router.dispatch("player1", command)
+async def test_say_command_is_unknown(router):
+    """Test that 'say' command is no longer available (replaced by /tell and /yell)."""
+    command = CommandInput(action="say", args=["hello"])
+    result = await router.dispatch("player1", command)
+    assert result.replies[0].type == "error"
+    assert "Unknown command" in result.replies[0].data["message"]

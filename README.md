@@ -10,7 +10,10 @@ This is a small multi-user dungeon (MUD) that runs as a web server and is playab
   - `go north|south|east|west`
   - `collect` / `drop` gold coins
   - `look` to re-print the current room
-  - `say <message>` to speak to others in the room
+  - `/tell <character> <message>` to send a private message
+  - `/tell all <message>` to message all online players
+  - `/yell <character> <message>` to send a message in ALL CAPS
+  - `/reply <message>` to reply to the last person who messaged you
   - Emotes like `/dance`, `/sneeze`, `/smile` (see `data/verbs.json`).
 - Browser UI:
   - Left: log of room descriptions and events.

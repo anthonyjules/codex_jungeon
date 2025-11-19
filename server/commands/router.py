@@ -23,7 +23,6 @@ class CommandRouter:
             "take": take_handler,
             "look": look_handler,
             "emote": emote_handler,
-            "say": say_handler,
             "tell": tell_handler,
             "yell": yell_handler,
             "reply": reply_handler,
@@ -198,35 +197,6 @@ async def emote_handler(
             BroadcastEvent(
                 player_id=player_id,
                 text=emote_text,
-                include_self=False,
-            )
-        ],
-    )
-
-
-async def say_handler(
-    world: WorldEngine,
-    connections: ConnectionManager,
-    player_id: str,
-    command: CommandInput,
-) -> CommandResult:
-    args = command.args or []
-    if not args:
-        raise ValueError("Say what?")
-    text = " ".join(args)
-    player = await world.get_player(player_id)
-    speaker_name = player.name if player else "Someone"
-    return CommandResult(
-        replies=[
-            ServerMessage(
-                type="event",
-                data={"text": f'You say: "{text}"'},
-            )
-        ],
-        broadcasts=[
-            BroadcastEvent(
-                player_id=player_id,
-                text=f'{speaker_name} says: "{text}"',
                 include_self=False,
             )
         ],
