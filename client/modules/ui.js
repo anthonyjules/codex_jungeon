@@ -12,6 +12,7 @@ export class UiController {
     this.roomExitsEl = document.getElementById("room-exits");
     this.inventoryItemsEl = document.getElementById("inventory-items");
     this.minimapEl = document.getElementById("minimap");
+    this.onlinePlayersEl = document.getElementById("online-players");
     this.controlButtons = Array.from(
       document.querySelectorAll("[data-command]")
     );
@@ -94,6 +95,26 @@ export class UiController {
         this.inventoryItemsEl.appendChild(li);
       });
     }
+  }
+
+  renderOnlinePlayers(players) {
+    if (!this.onlinePlayersEl) {
+      return;
+    }
+    this.onlinePlayersEl.innerHTML = "";
+    if (!Array.isArray(players) || players.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "No other players online";
+      li.style.fontStyle = "italic";
+      li.style.color = "#888";
+      this.onlinePlayersEl.appendChild(li);
+      return;
+    }
+    players.forEach((player) => {
+      const li = document.createElement("li");
+      li.textContent = player.name;
+      this.onlinePlayersEl.appendChild(li);
+    });
   }
 
   bindCommandInput(handler) {

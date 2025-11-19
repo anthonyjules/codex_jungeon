@@ -30,6 +30,10 @@ class ConnectionManager:
     def get(self, player_id: str) -> WebSocket | None:
         return self._connections.get(player_id)
 
+    def get_all_connected_player_ids(self) -> list[str]:
+        """Return a list of all currently connected player IDs."""
+        return list(self._connections.keys())
+
     async def send(self, player_id: str, message: Dict[str, object]) -> None:
         ws = self._connections.get(player_id)
         if not ws:
@@ -39,6 +43,11 @@ class ConnectionManager:
         except RuntimeError:
             # Connection cleanup happens on disconnect.
             pass
+
+    async def send_to_all(self, message: Dict[str, object]) -> None:
+        """Send a message to all connected players."""
+        for player_id in self._connections.keys():
+            await self.send(player_id, message)
 
     async def broadcast_room_event(
         self, world: WorldEngine, event: BroadcastEvent

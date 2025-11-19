@@ -92,6 +92,11 @@ class GameClient {
       }
     } else if (type === "inventory") {
       this.ui.renderInventory(data);
+    } else if (type === "onlinePlayers") {
+      if (data.players) {
+        // Server already excludes the current player
+        this.ui.renderOnlinePlayers(data.players);
+      }
     } else if (type === "error") {
       if (data.message) {
         this.ui.appendLog(data.message, "error");
