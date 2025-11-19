@@ -3,7 +3,10 @@ from __future__ import annotations
 import asyncio
 import random
 import uuid
-from typing import Dict, List, Optional
+from typing import TYPE_CHECKING, Dict, List, Optional
+
+if TYPE_CHECKING:
+    from ..services.connection_manager import ConnectionManager
 
 from ..models import (
     CharacterTemplate,
@@ -115,6 +118,50 @@ class WorldEngine:
     async def get_player(self, player_id: str) -> Optional[PlayerState]:
         async with self.lock:
             return self.state.players.get(player_id)
+
+    async def resolve_character_name(
+        self, name_query: str, connections: "ConnectionManager"
+    ) -> Optional[str]:
+        """
+        Resolve a character name query to a player_id.
+        Supports case-insensitive and partial matching.
+        Returns None if no match or ambiguous match.
+        """
+        query_lower = name_query.lower().strip()
+        if not query_lower:
+            return None
+
+        # Get all online players
+        online_player_ids = connections.get_all_connected_player_ids()
+        matches: List[tuple[str, str]] = []  # (player_id, full_name)
+
+        async with self.lock:
+            for player_id in online_player_ids:
+                player = self.state.players.get(player_id)
+                if not player:
+                    continue
+                full_name = player.name
+                first_name = full_name.split()[0] if full_name else ""
+
+                # Check exact match (case-insensitive)
+                if full_name.lower() == query_lower or first_name.lower() == query_lower:
+                    matches.append((player_id, full_name))
+                # Check partial match (case-insensitive)
+                elif first_name.lower().startswith(query_lower):
+                    matches.append((player_id, full_name))
+
+        # If exactly one match, return it
+        if len(matches) == 1:
+            return matches[0][0]
+        # If multiple matches, check if any is exact
+        elif len(matches) > 1:
+            exact_matches = [
+                pid for pid, name in matches
+                if name.lower() == query_lower or name.split()[0].lower() == query_lower
+            ]
+            if len(exact_matches) == 1:
+                return exact_matches[0]
+        return None
 
     async def get_room_player_ids(self, room_id: str) -> List[str]:
         async with self.lock:

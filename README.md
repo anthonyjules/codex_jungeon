@@ -35,6 +35,21 @@ Then open a browser to:
 
 Each browser tab can pick one of the available characters and enter the dungeon.
 
+## Running tests
+
+From the project root with the virtual environment activated:
+
+```bash
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pytest tests/ -v
+```
+
+To run a specific test file:
+
+```bash
+pytest tests/test_communication.py -v
+```
+
 ## World data
 
 - World map, rooms, exits, coins, and interactable objects:

@@ -44,6 +44,11 @@ class ConnectionManager:
             # Connection cleanup happens on disconnect.
             pass
 
+    async def send_to_all(self, message: Dict[str, object]) -> None:
+        """Send a message to all connected players."""
+        for player_id in self._connections.keys():
+            await self.send(player_id, message)
+
     async def broadcast_room_event(
         self, world: WorldEngine, event: BroadcastEvent
     ) -> None:
