@@ -89,3 +89,20 @@ async def test_say_command_is_unknown(router):
     result = await router.dispatch("player1", command)
     assert result.replies[0].type == "error"
     assert "Unknown command" in result.replies[0].data["message"]
+
+
+@pytest.mark.asyncio()
+async def test_help_command(router):
+    """Test that help command shows available commands."""
+    command = CommandInput(action="help", args=[])
+    result = await router.dispatch("player1", command)
+    assert result.replies[0].type == "event"
+    help_text = result.replies[0].data["text"]
+    assert "Available Commands" in help_text
+    assert "go north/south/east/west" in help_text
+    assert "/tell" in help_text
+    assert "/yell" in help_text
+    assert "/reply" in help_text
+    assert "collect" in help_text
+    assert "drop" in help_text
+    assert "look" in help_text

@@ -55,4 +55,8 @@
   * Updated test to verify `say` is now treated as an unknown command
 
 ## 1.4 Add help command
-* [ ] if a user enters `help`, show all available commands
+* [x] if a user enters `help`, show all available commands
+  * Added `help_handler` to `server/commands/router.py`
+  * Added `"help": help_handler` to the `_handlers` dictionary in `CommandRouter`
+  * Help command displays all available commands organized by category (Movement, Items, Communication, Other)
+  * Added test to verify help command works correctly

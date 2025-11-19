@@ -26,6 +26,7 @@ class CommandRouter:
             "tell": tell_handler,
             "yell": yell_handler,
             "reply": reply_handler,
+            "help": help_handler,
         }
 
     async def dispatch(
@@ -451,3 +452,42 @@ def _verb_to_second_person(verb: str) -> str:
     if verb.istitle():
         return base.capitalize()
     return base
+
+
+async def help_handler(
+    world: WorldEngine,
+    connections: ConnectionManager,
+    player_id: str,
+    command: CommandInput,
+) -> CommandResult:
+    """Handle help command - show all available commands."""
+    help_text = """Available Commands:
+
+Movement:
+  go north/south/east/west  - Move in a direction (or use n/s/e/w)
+  look                      - Re-print the current room description
+
+Items:
+  collect                   - Collect all gold coins from the current room
+  drop                      - Drop all your gold coins into the current room
+  take [item]               - Take an item from the room (use "take all" for all items)
+
+Communication:
+  /tell <character> <message>  - Send a private message to a character
+  /tell all <message>          - Send a message to all online players
+  /yell <character> <message>  - Send a private message in ALL CAPS
+  /yell all <message>          - Send a message in ALL CAPS to all online players
+  /reply <message>             - Reply to the last person who messaged you
+  /<emote>                     - Perform an emote (e.g., /dance, /sneeze, /smile)
+
+Other:
+  help                      - Show this help message"""
+
+    return CommandResult(
+        replies=[
+            ServerMessage(
+                type="event",
+                data={"text": help_text},
+            )
+        ]
+    )
