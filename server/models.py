@@ -69,6 +69,7 @@ class PlayerState:
     room_id: str
     coins: int = 0
     items: List[str] = field(default_factory=list)
+    last_message_sender_id: Optional[str] = None
 
     def create_save(self) -> "CharacterSave":
         return CharacterSave(

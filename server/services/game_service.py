@@ -38,3 +38,12 @@ class GameService:
 
     async def get_inventory(self, player_id: str):
         return await self.world.get_inventory(player_id)
+
+    async def get_online_player_names(self, player_ids: list[str]) -> list[dict[str, str]]:
+        """Get names for a list of player IDs. Returns list of dicts with 'playerId' and 'name'."""
+        result = []
+        for pid in player_ids:
+            player = await self.world.get_player(pid)
+            if player:
+                result.append({"playerId": pid, "name": player.name})
+        return result
